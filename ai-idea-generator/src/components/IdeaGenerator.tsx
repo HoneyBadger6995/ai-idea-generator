@@ -1,7 +1,13 @@
+import { useState } from "react"
+
 function IdeaGenerator() {
+  const [topic, setTopic] = useState<string>("")
+
   return (
     <div style={{ marginTop: "30px" }}>
       <input
+        value={topic}
+        onChange={(e) => setTopic(e.target.value)}
         placeholder="Enter a topic..."
         style={{
           padding: "10px",
