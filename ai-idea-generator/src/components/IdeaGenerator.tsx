@@ -3,6 +3,10 @@ import { useState } from "react"
 function IdeaGenerator() {
   const [topic, setTopic] = useState<string>("")
 
+  const handleGenerate = () => {
+    console.log("Generating ideas for:", topic);
+  }
+
   return (
     <div style={{ marginTop: "30px" }}>
       <input
@@ -17,6 +21,7 @@ function IdeaGenerator() {
       />
 
       <button
+        onClick={handleGenerate}
         style={{
           padding: "10px 20px",
           cursor: "pointer"
