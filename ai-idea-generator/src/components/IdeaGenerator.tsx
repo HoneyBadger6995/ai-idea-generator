@@ -1,21 +1,13 @@
-import { useState } from "react"
+import { useState } from "react";
+import { generateIdeas } from "../services/aiService";
 
 function IdeaGenerator() {
     const [topic, setTopic] = useState<string>("")
     const [ideas, setIdeas] = useState<string[]>([])
 
-    const handleGenerate = () => {
-        console.log("Generating ideas for:", topic);
-
-        const mockIdeas = [
-            `${topic} AI assistant`,
-            `${topic} mobile app`,
-            `${topic} analytics platform`,
-            `${topic} marketplace`,
-            `${topic} automation tool`,
-        ]
-
-        setIdeas(mockIdeas)
+    const handleGenerate = async() => {
+        const result = await generateIdeas(topic);
+        setIdeas(result);
     }
 
     return (
